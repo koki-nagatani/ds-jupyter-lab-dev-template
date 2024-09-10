@@ -1,0 +1,21 @@
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - TZ=Asia/Tokyo
+    volumes:
+      - .:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token=''
+    shm_size: '2gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

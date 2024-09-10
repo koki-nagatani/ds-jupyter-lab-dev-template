@@ -1,0 +1,26 @@
+{
+	"name": "Jupyter Lab with cuda",
+
+	"dockerComposeFile": "../compose.yaml",
+	"service": "jupyter",
+	"workspaceFolder": "/home/jovyan/work",
+
+	"forwardPorts": [8888],
+
+	"remoteUser": "jovyan",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/opt/conda/bin/python"
+			},
+
+			"extensions": [
+				"ms-python.python",
+                "charliermarsh.ruff",
+				"ms-python.vscode-pylance",
+				"usernamehw.errorlens"
+			]
+		}
+	}
+}
